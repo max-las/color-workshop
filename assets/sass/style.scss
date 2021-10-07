@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Roboto:wght@900&family=Yeseva+One&display=swap');
 
 body {
   margin: 0px;
@@ -73,11 +73,18 @@ h1, h2 {
 
 .works {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 48px;
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    width: 53%;
+  }
 
   &__description {
     width: 36%;
+    margin-top: 100px;
 
     h2 {
       font-family: 'Yeseva One', cursive;
@@ -90,6 +97,113 @@ h1, h2 {
       font-family: 'Abel', sans-serif;
       font-size: 24px;
       white-space: pre-line;
+    }
+  }
+
+  &__imageThumbnails {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &__imageThumbnail {
+    height: 81px;
+    margin-right: 20px;
+    border-radius: 10px;
+    opacity: .5;
+
+    cursor: pointer;
+
+    &--selected {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    position: relative;
+    overflow-x: hidden;
+
+    &--oeuvre1 {
+      .imageLine {
+        transform: translateX(0px);
+      }
+    }
+
+    &--oeuvre2 {
+      .imageLine {
+        transform: translateX(calc(-1 * (100% - 10 * 2px) / 3 - 10px));
+      }
+    }
+
+    &--oeuvre3 {
+      .imageLine {
+        transform: translateX(calc(-2 * (100% - 10 * 2px) / 3 - 20px));
+      }
+    }
+
+    .imageLine {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(300% + 10 * 2px);
+
+      transition: transform 1s;
+
+      img {
+        width: calc((100% - 10 * 2px) / 3);
+      }
+    }
+
+    .imageArrows {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 100%;
+
+      img {
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+
+.footer {
+  background-color: #F7F3FF;
+  height: 136px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &__flexSpacer {
+    margin-right: auto;
+  }
+
+  &__text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+
+  &__brands {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    pointer-events: none;
+    * {
+      pointer-events: auto;
     }
   }
 }
