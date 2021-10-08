@@ -87,7 +87,7 @@ h1, h2 {
     margin-top: 100px;
     opacity: 0;
     display: none;
-    transition: opacity .7s;
+    transition: opacity .4s;
 
     h2 {
       font-family: 'Yeseva One', cursive;
@@ -110,6 +110,10 @@ h1, h2 {
 
   &__imageThumbnail {
     height: 81px;
+    width: 148px;
+    background-size: cover;
+    background-position: center;
+
     margin-right: 20px;
     border-radius: 10px;
     opacity: .5;
@@ -118,6 +122,18 @@ h1, h2 {
 
     &--selected {
       opacity: 1;
+    }
+
+    &--oeuvre1 {
+      background-image: url('../images/oeuvre1.jpg');
+    }
+
+    &--oeuvre2 {
+      background-image: url('../images/oeuvre2.jpg');
+    }
+
+    &--oeuvre3 {
+      background-image: url('../images/oeuvre3.jpg');
     }
   }
 

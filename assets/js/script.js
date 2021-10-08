@@ -88,6 +88,6 @@ function switchDescription(n){
     next.style.display = "block";
     setTimeout(function(){
       next.style.opacity = "1";
-    }, 100);
+    }, 50);
   }, 1000);
 }

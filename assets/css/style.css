@@ -75,7 +75,7 @@ h1, h2 {
   margin-top: 100px;
   opacity: 0;
   display: none;
-  transition: opacity 0.7s;
+  transition: opacity 0.4s;
 }
 .works__description h2 {
   font-family: "Yeseva One", cursive;
@@ -94,6 +94,9 @@ h1, h2 {
 }
 .works__imageThumbnail {
   height: 81px;
+  width: 148px;
+  background-size: cover;
+  background-position: center;
   margin-right: 20px;
   border-radius: 10px;
   opacity: 0.5;
@@ -101,6 +104,15 @@ h1, h2 {
 }
 .works__imageThumbnail--selected {
   opacity: 1;
+}
+.works__imageThumbnail--oeuvre1 {
+  background-image: url("../images/oeuvre1.jpg");
+}
+.works__imageThumbnail--oeuvre2 {
+  background-image: url("../images/oeuvre2.jpg");
+}
+.works__imageThumbnail--oeuvre3 {
+  background-image: url("../images/oeuvre3.jpg");
 }
 .works__image {
   position: relative;
