@@ -73,6 +73,9 @@ h1, h2 {
 .works__description {
   width: 36%;
   margin-top: 100px;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.7s;
 }
 .works__description h2 {
   font-family: "Yeseva One", cursive;
@@ -164,4 +167,7 @@ h1, h2 {
 }
 .footer__brands * {
   pointer-events: auto;
+}
+.footer__brands img {
+  height: 98px;
 }

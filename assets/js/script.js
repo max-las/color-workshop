@@ -1,5 +1,7 @@
 // Quand le DOM est prêt
 document.addEventListener("DOMContentLoaded", function(){
+  document.querySelector(".works__description--selected").style.display = "block";
+  document.querySelector(".works__description--selected").style.opacity = "1";
 
   document.querySelector(".imageArrows__left").addEventListener("click", function(){
     var oeuvre = whichOeuvre();
@@ -70,4 +72,22 @@ function switchOeuvre(n){
 
   document.querySelector(".works__imageThumbnail--selected").classList.remove("works__imageThumbnail--selected");
   document.querySelector(".works__imageThumbnail--oeuvre" + n).classList.add("works__imageThumbnail--selected");
+
+  switchDescription(n);
+}
+
+function switchDescription(n){
+  let prev = document.querySelector(".works__description--selected");
+  let next = document.querySelector(".works__description--oeuvre" + n);
+
+  prev.style.opacity = null;
+  setTimeout(function(){
+    prev.style.display = null;
+    prev.classList.remove("works__description--selected");
+    next.classList.add("works__description--selected");
+    next.style.display = "block";
+    setTimeout(function(){
+      next.style.opacity = "1";
+    }, 100);
+  }, 1000);
 }

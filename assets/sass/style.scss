@@ -85,6 +85,9 @@ h1, h2 {
   &__description {
     width: 36%;
     margin-top: 100px;
+    opacity: 0;
+    display: none;
+    transition: opacity .7s;
 
     h2 {
       font-family: 'Yeseva One', cursive;
@@ -204,6 +207,10 @@ h1, h2 {
     pointer-events: none;
     * {
       pointer-events: auto;
+    }
+
+    img {
+      height: 98px;
     }
   }
 }
