@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Abel&family=Roboto:wght@900&family=Yeseva+One&display=swap");
 body {
   margin: 0px;
@@ -62,7 +63,8 @@ h1, h2 {
 
 .works {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   padding: 48px;
 }
 .works__controls {
@@ -72,7 +74,6 @@ h1, h2 {
 }
 .works__description {
   width: 36%;
-  margin-top: 100px;
   opacity: 0;
   display: none;
   transition: opacity 0.4s;
@@ -90,7 +91,7 @@ h1, h2 {
 }
 .works__imageThumbnails {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .works__imageThumbnail {
   height: 81px;
@@ -117,25 +118,26 @@ h1, h2 {
 .works__image {
   position: relative;
   overflow-x: hidden;
+  width: calc((960 / 770) * 50vh);
+  height: 50vh;
 }
 .works__image--oeuvre1 .imageLine {
   transform: translateX(0px);
 }
 .works__image--oeuvre2 .imageLine {
-  transform: translateX(calc(-1 * (100% - 10 * 2px) / 3 - 10px));
+  transform: translateX(calc((960 / 770) * -50vh - 10px));
 }
 .works__image--oeuvre3 .imageLine {
-  transform: translateX(calc(-2 * (100% - 10 * 2px) / 3 - 20px));
+  transform: translateX(calc((960 / 770) * -50vh * 2 - 20px));
 }
 .works__image .imageLine {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: calc(300% + 10 * 2px);
   transition: transform 1s;
 }
 .works__image .imageLine img {
-  width: calc((100% - 10 * 2px) / 3);
+  width: calc((960 / 770) * 50vh);
+  margin-right: 10px;
 }
 .works__image .imageArrows {
   position: absolute;
@@ -146,6 +148,14 @@ h1, h2 {
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  /*
+  Permet de sélectionner les éléments sous l'espace vide de la div
+  la div se comporte ainsi comme une simple surcouche de layout
+  */
+  pointer-events: none;
+}
+.works__image .imageArrows * {
+  pointer-events: auto;
 }
 .works__image .imageArrows img {
   cursor: pointer;
@@ -175,6 +185,10 @@ h1, h2 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  /*
+  Permet de sélectionner les éléments sous l'espace vide de la div
+  la div se comporte ainsi comme une simple surcouche de layout
+  */
   pointer-events: none;
 }
 .footer__brands * {

@@ -1,5 +1,7 @@
 // Quand le DOM est prêt
 document.addEventListener("DOMContentLoaded", function(){
+
+  // l'affichage des descriptions doit être géré par js plutôt que css pour permettre à leurs transtions de bien se dérouler
   document.querySelector(".works__description--selected").style.display = "block";
   document.querySelector(".works__description--selected").style.opacity = "1";
 
@@ -59,21 +61,29 @@ function whichOeuvre(){
   }
 }
 
+oeuvreSwitching = false;
+
 function switchOeuvre(n){
-  let classes = document.querySelector(".works__image").classList;
+  if(!oeuvreSwitching){ // empêche une nouvelle transition de démarrer tant que la précédente n'est pas terminée pour éviter des bugs
 
-  for(var i = 0; i < classes.length; i++){
-    if(classes.item(i).startsWith("works__image--oeuvre")){
-      classes.remove(classes.item(i));
+    oeuvreSwitching = true;
+
+    let classes = document.querySelector(".works__image").classList;
+
+    for(var i = 0; i < classes.length; i++){
+      if(classes.item(i).startsWith("works__image--oeuvre")){
+        classes.remove(classes.item(i));
+      }
     }
+
+    classes.add("works__image--oeuvre" + n);
+
+    document.querySelector(".works__imageThumbnail--selected").classList.remove("works__imageThumbnail--selected");
+    document.querySelector(".works__imageThumbnail--oeuvre" + n).classList.add("works__imageThumbnail--selected");
+
+    switchDescription(n);
+
   }
-
-  classes.add("works__image--oeuvre" + n);
-
-  document.querySelector(".works__imageThumbnail--selected").classList.remove("works__imageThumbnail--selected");
-  document.querySelector(".works__imageThumbnail--oeuvre" + n).classList.add("works__imageThumbnail--selected");
-
-  switchDescription(n);
 }
 
 function switchDescription(n){
@@ -81,13 +91,19 @@ function switchDescription(n){
   let next = document.querySelector(".works__description--oeuvre" + n);
 
   prev.style.opacity = null;
+
+  // attends la fin de la transition d'opacité avant de remplacer la description précédente par la suivante
   setTimeout(function(){
     prev.style.display = null;
     prev.classList.remove("works__description--selected");
     next.classList.add("works__description--selected");
     next.style.display = "block";
+
+    // laisse le temps à la div d'apparaître avant de déclencher la transition d'opacité, sans quoi la transition n'est pas visible
     setTimeout(function(){
       next.style.opacity = "1";
-    }, 50);
-  }, 1000);
+      oeuvreSwitching = false;
+    }, 100);
+
+  }, 400);
 }
