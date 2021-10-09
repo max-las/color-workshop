@@ -1,3 +1,3 @@
 # Purplet
 
-Online at [purplet.netlify.app/](https://purplet.netlify.app/)
+Online at [purplet.netlify.app/](https://purplet.netlify.app)
